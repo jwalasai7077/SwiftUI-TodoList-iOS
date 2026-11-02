@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TaskFlow — Todo List</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">✓</div><span>TaskFlow</span></div>
+    <div class="side-label">WORKSPACE</div>
+    <button class="nav-item active" data-filter="all"><span>▦</span> All tasks <b id="allCount">0</b></button>
+    <button class="nav-item" data-filter="today"><span>◷</span> Today <b id="todayCount">0</b></button>
+    <button class="nav-item" data-filter="upcoming"><span>▣</span> Upcoming</button>
+    <button class="nav-item" data-filter="completed"><span>✓</span> Completed</button>
+    <div class="side-label priorities-label">PRIORITY</div>
+    <button class="nav-item" data-filter="high"><i class="dot high"></i> High priority</button>
+    <button class="nav-item" data-filter="medium"><i class="dot medium"></i> Medium priority</button>
+    <button class="nav-item" data-filter="low"><i class="dot low"></i> Low priority</button>
+    <div class="sidebar-bottom"><div class="mini-card"><div class="mini-icon">✦</div><strong>Make space for focus.</strong><p>One small task at a time adds up.</p></div><button id="themeBtn" class="theme-btn">◐ <span>Toggle appearance</span></button></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div class="crumb">Workspace <span>/</span> <strong id="crumbTitle">All tasks</strong></div><div class="top-actions"><span class="today-date" id="dateLabel"></span><div class="avatar">J</div></div></header>
+    <section class="content">
+      <div class="heading-row"><div><div class="eyebrow">YOUR PERSONAL WORKSPACE</div><h1 id="pageTitle">All tasks<span class="title-period">.</span></h1><p class="subtitle" id="pageSubtitle">A clear mind starts with a clear list.</p></div><button class="primary-btn" id="addBtn"><span>＋</span> New task</button></div>
+      <div class="stats"><div class="stat-card"><div class="stat-top"><span>Total tasks</span><span class="stat-symbol">▤</span></div><strong id="totalStat">0</strong><small>Across your workspace</small></div><div class="stat-card"><div class="stat-top"><span>In progress</span><span class="stat-symbol orange">◷</span></div><strong id="activeStat">0</strong><small>Tasks to focus on</small></div><div class="stat-card"><div class="stat-top"><span>Completed</span><span class="stat-symbol green">✓</span></div><strong id="doneStat">0</strong><small>Nice work, keep going</small></div><div class="stat-card progress-card"><div class="stat-top"><span>Progress</span><span id="progressPct">0%</span></div><div class="progress-track"><div id="progressBar"></div></div><small>Completion rate</small></div></div>
+      <div class="toolbar"><div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search tasks..."></div><div class="toolbar-right"><select id="sortSelect" aria-label="Sort tasks"><option value="newest">Recently added</option><option value="due">Due date</option><option value="priority">Priority</option><option value="az">Alphabetical</option></select><button class="filter-chip" id="clearCompleted">Clear completed</button></div></div>
+      <div class="list-heading"><div><h2 id="listTitle">Your tasks</h2><span id="listCount">0 tasks</span></div><span class="keyboard-hint">Stay organized · Stay focused</span></div>
+      <div id="taskList" class="task-list"></div>
+      <div id="emptyState" class="empty-state"><div class="empty-icon">✦</div><h3>Nothing on your list yet</h3><p>Add a task and make today count.</p><button class="primary-btn" id="emptyAdd">＋ Create your first task</button></div>
+      <footer>TaskFlow <span>·</span> Your tasks stay saved on this device</footer>
+    </section>
+  </main>
+</div>
+<div class="modal-backdrop" id="modal" aria-hidden="true"><form class="modal" id="taskForm"><div class="modal-head"><div><div class="eyebrow">TASK DETAILS</div><h2 id="modalTitle">Create a task</h2></div><button type="button" class="close-btn" id="closeModal">×</button></div><label>Task title<input id="taskTitle" maxlength="100" placeholder="e.g. Prepare project presentation" required></label><label>Description <span class="optional">(optional)</span><textarea id="taskDescription" rows="3" placeholder="Add a few details..."></textarea></label><div class="form-row"><label>Priority<select id="taskPriority"><option value="medium">Medium</option><option value="high">High</option><option value="low">Low</option></select></label><label>Due date<input id="taskDue" type="date"></label></div><div class="modal-actions"><button type="button" class="secondary-btn" id="cancelBtn">Cancel</button><button type="submit" class="primary-btn">Save task</button></div></form></div>
+<script src="app.js"></script>
+</body></html>
