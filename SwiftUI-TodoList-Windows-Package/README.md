@@ -10,7 +10,7 @@ Open `Windows-Run-Version/` and double-click `START-WINDOWS.bat`. It launches a 
 
 # SwiftUI Todo List
 
-This is a simple todo list app for iOS, written in Swift and SwiftUI.
+This is a simple todo list app for iOS, written in Swift and SwiftUI can also run in Windows.
 
 #### The app has the following features:
 
